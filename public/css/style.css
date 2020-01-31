@@ -22,6 +22,14 @@ body {
     
 }
 
+section {
+    margin: 5px 10px;
+}
+
+button {
+    margin: 10px 10px;
+}
+
 button:hover {
     background-color: #DC143C;
     cursor: pointer;
