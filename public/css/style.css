@@ -43,9 +43,18 @@ table {
 
 #heading {
     margin: 5px 10px;
-    
+    height: 500px;
+    width: auto;
+    overflow: hidden;
 }
 
 #header-image {
-    opacity: 0.7;
+    opacity: 0.2;
+    width: 100%;
+    height: auto;
+}
+
+#header-text {
+    position: absolute;
+    padding: 200px 750px;
 }
