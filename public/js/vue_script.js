@@ -1,6 +1,6 @@
 
 
-const vm = new Vue({
+/*const vm = new Vue({
     el: '#myID',
     data: {
   	cheekyChickenBurger: 'Cheeky Chicken Burger 400 kCal',
@@ -8,5 +8,12 @@ const vm = new Vue({
 	cheeseBurger: 'Cheese Burger 300 kCal',
 	smallMac: 'Small Mac 100 kCal',
 	fishBurger: 'Fish Burger 400 kCal'
+    }
+    })*/
+
+const vm = new Vue({
+    el: '#myID',
+    data: {
+  burgers: menu
     }
 })

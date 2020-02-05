@@ -33,3 +33,28 @@ console.log(getKCal(cheeseBurger));
 console.log(getKCal(smallMac));
 console.log(getKCal(fishBurger));
 
+let menu = [cheekyChickenBurger, gigaBurger, cheeseBurger, smallMac, fishBurger];
+
+
+let myElement = document.getElementById("myID");
+for (burger of menu) {
+
+				let listItem = document.createElement("div");
+        
+        let allergies = '';
+        
+        if(burger.hasGluten) {
+        
+        	allergies += ' Contains gluten.'
+        
+        }
+        
+        if(burger.hasLactose) {
+        
+        	allergies += ' Contains lactose.'
+        
+        }
+        let listValue = document.createTextNode(burger.name + allergies);
+        listItem.appendChild(listValue);
+        myElement.appendChild(listItem);
+}
