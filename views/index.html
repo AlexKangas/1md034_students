@@ -22,8 +22,17 @@
 
 	
 	<div class="selection" id="selection">
-	  
-	  
+	  <div v-for="burger in burgers">
+	    <h4>{{ burger.name }}</h4>
+
+	    <img v-bind:src="burger.imagePath" v-bind:width="burger.imageWidth">
+
+	    <ul>
+	      <li>{{burger.kCal}} kCal</li>
+	      <li v-if="burger.hasGluten">Contains gluten</li>
+	      <li v-if="burger.hasLactose">Contains lactose</li>
+	    </ul>
+	  </div>
 	</div>
 	
 	

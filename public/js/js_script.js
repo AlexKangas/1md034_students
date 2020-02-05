@@ -21,6 +21,8 @@ let cheeseBurger = new menuItem('Cheese Burger', 300, true, false, 'https://www.
 let smallMac = new menuItem('Small Mac', 100, false, false, 'https://i.pinimg.com/originals/0d/14/4b/0d144baa1f2a4fdd604fdb94758608c4.jpg', 400);
 let fishBurger = new menuItem('Fish Burger', 500, false, true, 'https://assets.bonappetit.com/photos/5b084e259570db5acbd02557/16:9/w_1200,c_limit/fried-fish-sandwiches-with-cucumbers-and-tartar-sauce.jpg', 600);
 
+let menu = [cheekyChickenBurger, gigaBurger, cheeseBurger, smallMac, fishBurger];
+
 /*
 document.getElementById("cheekyChickenBurger").innerHTML = getKCal(cheekyChickenBurger);
 document.getElementById("gigaBurger").innerHTML = getKCal(gigaBurger);
@@ -34,9 +36,6 @@ console.log(getKCal(gigaBurger));
 console.log(getKCal(cheeseBurger));
 console.log(getKCal(smallMac));
 console.log(getKCal(fishBurger));
-*/
-
-let menu = [cheekyChickenBurger, gigaBurger, cheeseBurger, smallMac, fishBurger];
 
 
 let myElement = document.getElementById("selection");
@@ -82,3 +81,4 @@ for (burger of menu) {
     item.appendChild(listItem);
     myElement.appendChild(item);
 }
+*/
