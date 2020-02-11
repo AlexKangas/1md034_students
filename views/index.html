@@ -12,10 +12,12 @@
   </head>
   <body>
     <main>
+      
       <section id="heading">
 	<h1 id="header-text">Welcome to BurgerHeaven Online</h1>
 	<img src="https://www.burgerandlobster.com/media/1580/burgerlobster_flatiron_small.jpg?anchor=center&mode=crop&heightratio=0.5&width=1600&rnd=132098279270000000" id="header-image">
       </section>
+      <div id="button-clicked">
       <section id="select-burger">
 	<h3>Select burger</h3>
 	<p>This is where you execute burger selection</p>
@@ -25,7 +27,7 @@
 	<div class="selection" id="selection">
 	  <div v-for="burger in burgers">
 	    <h4>{{ burger.name }}</h4>
-
+	    
 	    <img v-bind:src="burger.imagePath" v-bind:width="burger.imageWidth">
 
 	    <ul>
@@ -33,6 +35,8 @@
 	      <li v-if="burger.hasGluten">Contains gluten</li>
 	      <li v-if="burger.hasLactose">Contains lactose</li>
 	    </ul>
+	    <input type="checkbox" :id="burger.name" name="burger" :value="burger.name" v-model="burgerbox">
+	    <label for="select burger">Add {{ burger.name }}</label><br>
 	  </div>
 	</div>
 	
@@ -41,28 +45,29 @@
       <section id="customer-information">
 	<h3>Customer information</h3>
 	<p>This is where you provide necessary information</p>
-	
+
+	 
 	<h4>Delivery information:</h4>
 	<p>
 	  <label for="full name">Full name</label><br>
-	  <input type="text" id="full name" name="fn" required="required" placeholder="First- and Last name" />
+	  <input type="text" id="full-name" name="fn" required="required" placeholder="First- and Last name" v-model="name"/>
 	</p>
 	<p>
 	  <label for="E-mail">E-mail</label><br>
-	  <input type="email" id="email" name="em" required="required" placeholder="E-mail address" />
+	  <input type="email" id="email" name="em" required="required" placeholder="E-mail address" v-model="email"/>
 	</p>
 	<p>
 	  <label for="Street">Street</label><br>
-	  <input type="text" id="Street" name="sn" placeholder="Street name" />
+	  <input type="text" id="street" name="sn" placeholder="Street name" v-model="street"/>
 	</p>
 	<p>
 	  <label for="House">House</label><br>
-	  <input type="number" id="house" name="hn" placeholder="House number" />
+	  <input type="number" id="house" name="hn" placeholder="House number" v-model.number="house"/>
 	</p>
 
 	<p>
 	  <label for="payment options">Payment options</label><br />
-	  <select id="payment options" name="po">
+	  <select id="payment-options" name="po" v-model="payment">
             <option>Credit card</option>
             <option>Swish</option>
             <option>Paypal</option>
@@ -71,22 +76,25 @@
 
 	<p>
 	  <label for="gender">Gender</label><br>
-	    <input type="radio" id="female" name="gender" placeholder="Male" />
+	    <input type="radio" id="male" name="gender" placeholder="Male" value="Male" v-model="gender"/>
 	    <label for="male">Male</label><br>
-	    <input type="radio" id="female" name="gender" placeholder="Female" />
+	    <input type="radio" id="female" name="gender" placeholder="Female" value="Female" v-model="gender"/>
 	    <label for="female">Female</label><br>
-	    <input type="radio" id="Do not provide" name="gender" placeholder="Do not provide" checked="checked" />
+	    <input type="radio" id="do-not-provide" name="gender" placeholder="Do not provide" value="Do not provide" checked="checked" v-model="gender"/>
 	    <label for="do not provide">Do not provide</label><br>
 	</p>        
       </section>
 
-      
-      <button type="submit"><img src="https://midwestmachinery.net/wp-content/uploads/2018/07/checkbox.png" width="30" />Place my order</button>
-
+     
+	<button v-on:click="getInput()" id="order-button" type="submit"><img src="https://midwestmachinery.net/wp-content/uploads/2018/07/checkbox.png" width="30" />Place my order</button>
+	<span>Saved user input: {{ selected }}</span>
+      </div>
       
       <footer>
         &copy 2020 Hypothetical Burgers Inc.
       </footer>
+
+      
     </main>
   </body>
 </html>

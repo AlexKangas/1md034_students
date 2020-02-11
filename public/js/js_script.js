@@ -64,3 +64,41 @@ for (burger of menu) {
     myElement.appendChild(item);
 }
 */
+
+/*
+function buttonClicked() {
+    console.log('Button clicked!');
+    console.log(getInput());
+}
+
+
+let orderButton = document.getElementById('order-button');
+
+orderButton.addEventListener("click", buttonClicked);
+
+
+function getInput() {
+
+    let checkedBurgers = new Array();
+
+    result = [document.getElementById('full-name').value,
+	    document.getElementById('email').value,
+	    document.getElementById('street').value,
+	    document.getElementById('house').value,
+	    document.getElementById('payment-options').value,
+	    document.querySelector('input[name="gender"]:checked').id,]
+
+    let allBurgers = document.getElementsByName('burger');
+
+    for (let i = 0; i < allBurgers.length; i++) {
+	if (allBurgers[i].checked) {
+	    result.push(allBurgers[i].value);
+	}
+    }
+
+    return result;
+}
+
+console.log(getInput());
+
+*/
