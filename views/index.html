@@ -78,18 +78,17 @@
 
 
 	<div class="view-box">
-	  <div id="dots" v-on:click="addOrder">
+	  <div id="dots" v-on:click="displayOrder">
             <div 
-              v-for="(order, key) in orders"
-              v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
-              {{key}}
+              v-bind:style="{ left: localOrder.details.x + 'px', top: localOrder.details.y + 'px'}">
+              T
             </div>
 	  </div>
 	</div>
       </section>
 
       
-      <button v-on:click="getInput()" id="order-button" type="submit"><img src="https://midwestmachinery.net/wp-content/uploads/2018/07/checkbox.png" width="30" />Place my order</button>
+      <button v-on:click="getInput(); addOrder();" id="order-button" type="submit"><img src="https://midwestmachinery.net/wp-content/uploads/2018/07/checkbox.png" width="30" />Place my order</button>
 
       <div>You have sent this information:</div>
       <ul>
