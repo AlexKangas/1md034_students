@@ -42,6 +42,7 @@ const vm = new Vue({
         x: event.currentTarget.getBoundingClientRect().left,
         y: event.currentTarget.getBoundingClientRect().top
       };
+	
       socket.emit("addOrder", { 
         orderId: this.getNext(),
         details: { 

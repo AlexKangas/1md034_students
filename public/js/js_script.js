@@ -83,8 +83,6 @@ function getInput() {
 
     result = [document.getElementById('full-name').value,
 	    document.getElementById('email').value,
-	    document.getElementById('street').value,
-	    document.getElementById('house').value,
 	    document.getElementById('payment-options').value,
 	    document.querySelector('input[name="gender"]:checked').id,]
 
