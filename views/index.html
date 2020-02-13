@@ -86,8 +86,21 @@
       </section>
 
      
-	<button v-on:click="getInput()" id="order-button" type="submit"><img src="https://midwestmachinery.net/wp-content/uploads/2018/07/checkbox.png" width="30" />Place my order</button>
-	<span>Saved user input: {{ selected }}</span>
+      <button v-on:click="getInput()" id="order-button" type="submit"><img src="https://midwestmachinery.net/wp-content/uploads/2018/07/checkbox.png" width="30" />Place my order</button>
+
+      <div>You have sent this information:</div>
+      <ul>
+	<li>{{ selected[0] }}</li>
+	<li>{{ selected[1] }}</li>
+	<li>{{ selected[2] }}</li>
+	<li>{{ selected[3] }}</li>
+	<li>{{ selected[4] }}</li>
+	<li>{{ selected[5] }}</li>
+      <div v-for="burger in selected[6]">
+	<li>{{ burger }}</li>
+      </div>
+      </ul>
+      
       </div>
       
       <footer>
