@@ -12,95 +12,100 @@
     <script src="https://vuejs.org/js/vue.js"></script>
   </head>
   <body>
+    <header id="heading">
+      <h1 id="header-text">Welcome to BurgerHeaven Online</h1>
+      <img src="https://www.burgerandlobster.com/media/1580/burgerlobster_flatiron_small.jpg?anchor=center&mode=crop&heightratio=0.5&width=1600&rnd=132098279270000000" id="header-image">
+    </header>
     <main>
-      
-      <section id="heading">
-	<h1 id="header-text">Welcome to BurgerHeaven Online</h1>
-	<img src="https://www.burgerandlobster.com/media/1580/burgerlobster_flatiron_small.jpg?anchor=center&mode=crop&heightratio=0.5&width=1600&rnd=132098279270000000" id="header-image">
-      </section>
       <div id="button-clicked">
-      <section id="select-burger">
-	<h3>Select burger</h3>
-	<p>This is where you execute burger selection</p>
+	<section id="select-burger">
+	  <h3>Select burger</h3>
+	  <p>This is where you execute burger selection</p>
 
 
-	
-	<div class="selection" id="selection">
-	  <div v-for="burger in burgers">
-	    <h4>{{ burger.name }}</h4>
-	    
-	    <img v-bind:src="burger.imagePath" v-bind:width="burger.imageWidth">
+	  
+	  <div class="selection" id="selection">
+	    <div v-for="burger in burgers">
+	      <h4>{{ burger.name }}</h4>
+	      
+	      <img v-bind:src="burger.imagePath" v-bind:width="burger.imageWidth">
 
-	    <ul>
-	      <li>{{burger.kCal}} kCal</li>
-	      <li v-if="burger.hasGluten">Contains gluten</li>
-	      <li v-if="burger.hasLactose">Contains lactose</li>
-	    </ul>
-	    <input type="checkbox" :id="burger.name" name="burger" :value="burger.name" v-model="burgerbox">
-	    <label for="select burger">Add {{ burger.name }}</label><br>
+	      <ul>
+		<li>{{burger.kCal}} kCal</li>
+		<li v-if="burger.hasGluten" id="allergy">Contains gluten</li>
+		<li v-if="burger.hasLactose" id="allergy">Contains lactose</li>
+	      </ul>
+	      <input type="checkbox" :id="burger.name" name="burger" :value="burger.name" v-model="burgerbox">
+	      <label for="select burger">Add {{ burger.name }}</label><br>
+	    </div>
 	  </div>
-	</div>
-	
-	
-      </section>
-      <section id="customer-information">
-	<h3>Customer information</h3>
-	<p>This is where you provide necessary information</p>
+	  
+	  
+	</section>
+	<section id="customer-information">
+	  <h3>Customer information</h3>
+	  <p>This is where you provide necessary information</p>
 
-	 
-	<h4>Delivery information:</h4>
-	<p>
-	  <label for="full name">Full name</label><br>
-	  <input type="text" id="full-name" name="fn" required="required" placeholder="First- and Last name" v-model="name"/>
-	</p>
-	<p>
-	  <label for="E-mail">E-mail</label><br>
-	  <input type="email" id="email" name="em" required="required" placeholder="E-mail address" v-model="email"/>
-	</p>
-	<p>
-	  <label for="payment options">Payment options</label><br />
-	  <select id="payment-options" name="po" v-model="payment">
-            <option>Credit card</option>
-            <option>Swish</option>
-            <option>Paypal</option>
-	  </select>
-	</p>
+	  
+	  <h4>Delivery information:</h4>
+	  <p>
+	    <label for="full name">Full name</label><br>
+	    <input type="text" id="full-name" name="fn" required="required" placeholder="First- and Last name" v-model="name"/>
+	  </p>
+	  <p>
+	    <label for="E-mail">E-mail</label><br>
+	    <input type="email" id="email" name="em" required="required" placeholder="E-mail address" v-model="email"/>
+	  </p>
+	  <p>
+	    <label for="payment options">Payment options</label><br />
+	    <select id="payment-options" name="po" v-model="payment">
+              <option>Credit card</option>
+              <option>Swish</option>
+              <option>Paypal</option>
+	    </select>
+	  </p>
 
-	<p>
-	  <label for="gender">Gender</label><br>
+	  <p>
+	    <label for="gender">Gender</label><br>
 	    <input type="radio" id="male" name="gender" placeholder="Male" value="Male" v-model="gender"/>
 	    <label for="male">Male</label><br>
 	    <input type="radio" id="female" name="gender" placeholder="Female" value="Female" v-model="gender"/>
 	    <label for="female">Female</label><br>
 	    <input type="radio" id="do-not-provide" name="gender" placeholder="Do not provide" value="Do not provide" checked="checked" v-model="gender"/>
 	    <label for="do not provide">Do not provide</label><br>
-	</p>
+	  </p>
 
-
-	<div class="view-box">
-	  <div id="dots" v-on:click="displayOrder">
-            <div 
-              v-bind:style="{ left: localOrder.details.x + 'px', top: localOrder.details.y + 'px'}">
-              T
-            </div>
+	  <p>Please provide delivery destination by clicking on the map:</p>
+	  <div class="view-box">
+	    <div id="dots" v-on:click="displayOrder">
+              <div 
+		v-bind:style="{ left: localOrder.details.x + 'px', top: localOrder.details.y + 'px'}">
+		T
+              </div>
+	    </div>
 	  </div>
-	</div>
-      </section>
+	</section>
 
-      
-      <button v-on:click="getInput(); addOrder();" id="order-button" type="submit"><img src="https://midwestmachinery.net/wp-content/uploads/2018/07/checkbox.png" width="30" />Place my order</button>
+	
+	<button v-on:click="getInput(); addOrder();" id="order-button" type="submit"><img src="https://midwestmachinery.net/wp-content/uploads/2018/07/checkbox.png" width="30" />Place my order</button>
+	
+	<h3>Order confirmation</h3>
+	
+	<h4>Customer details</h4>
+	<ul>
+	  <li>Name: {{ selected[0] }}</li>
+	  <li>Email: {{ selected[1] }}</li>
+	  <li>Payment method: {{ selected[2] }}</li>
+	  <li>Gender: {{ selected[3] }}</li>
+	</ul>
 
-      <div>You have sent this information:</div>
-      <ul>
-	<li>{{ selected[0] }}</li>
-	<li>{{ selected[1] }}</li>
-	<li>{{ selected[2] }}</li>
-	<li>{{ selected[3] }}</li>
-      <div v-for="burger in selected[4]">
-	<li>{{ burger }}</li>
-      </div>
-      </ul>
-      
+	<h4>Order summary</h4>
+	<ul>
+	  <div v-for="burger in selected[4]">
+	    <li>{{ burger }}</li>
+	  </div>
+	</ul>
+	
       </div>
       
       <footer>

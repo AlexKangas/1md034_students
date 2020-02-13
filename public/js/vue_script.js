@@ -58,9 +58,9 @@ const vm = new Vue({
 		orderId: this.getNext(),
 		details: { 
 		    x: this.localOrder.details.x,
-		    y: this.localOrder.details.y 
+		    y: this.localOrder.details.y,
 		},
-		
+		personalInfo: [this.name, this.email, this.payment, this.gender],
 		orderItems: this.burgerbox
 	    });
 	    
@@ -75,19 +75,8 @@ const vm = new Vue({
 		y: event.currentTarget.getBoundingClientRect().top
 	    };
 
-	    this.localOrder.details.x = event.clientX - 10 - offset.x
-	    this.localOrder.details.y = event.clientY - 10 - offset.y
-	    
-	    
-	    /*socket.emit("addOrder", { 
-		orderId: this.getNext(),
-		details: { 
-		    x: event.clientX - 10 - offset.x,
-		    y: event.clientY - 10 - offset.y 
-		},
-		
-		orderItems: ["Beans", "Curry"]
-	    });*/
+	    this.localOrder.details.x = event.clientX - 10 - offset.x;
+	    this.localOrder.details.y = event.clientY - 10 - offset.y;
 	    
 	},
     }
